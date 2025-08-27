@@ -3,4 +3,5 @@ function saudacao(nome) {
 }
 
 // Exportando a função para que possa ser usada em outros arquivos
-module.exports = saudacao;
+module.exports = { saudacao
+    };
