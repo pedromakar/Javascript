@@ -24,8 +24,3 @@ module.exports = {
     dividir
 };
 
-
-//calculo idade
-function calculaIdade(anoNasc, anoAtual) {
-    return anoAtual - anoNasc;
-}   
