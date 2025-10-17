@@ -1,9 +1,10 @@
-const express = require('express');
+import express from 'express';
+import { index, produtos, camisetas } from '../controllers/siteController.js';
+
 const router = express.Router();
-const siteController = require('../controllers/siteController');
 
-router.get('/', siteController.index);
-router.get('/formulario', siteController.formulario);
-router.post('/saudacao', siteController.saudacao);
+router.get('/', index);
+router.get('/produtos', produtos);
+router.post('/camisetas', camisetas);
 
-module.exports = router;
+export default router;
