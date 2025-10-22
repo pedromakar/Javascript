@@ -1,10 +1,11 @@
-import express from 'express';
-import { index, produtos, camisetas } from '../controllers/siteController.js';
+const express = require('express');
+const siteController = require('../controllers/siteController.js');
+const produtosController = require('../controllers/produtosController.js');
 
 const router = express.Router();
 
-router.get('/', index);
-router.get('/produtos', produtos);
-router.post('/camisetas', camisetas);
+router.get('/', siteController.index);
+router.get('/produtos', produtosController.lista);
+router.post('/camisetas', produtosController.cadastrar);
 
-export default router;
+module.exports = router;

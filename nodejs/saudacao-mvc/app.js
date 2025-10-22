@@ -15,5 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/produtos', produtosRouter); // Aqui também
+const clientesRouter = require('./routes/clientes');
+app.use('/clientes', clientesRouter);
 
 module.exports = app;
