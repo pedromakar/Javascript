@@ -1,14 +1,8 @@
-const express = require('express');
+const express = require ('express');
 const router = express.Router();
+const produtosController = require('../controllers/produtosController');
 
-// Rota GET /produtos
-router.get('/', (req, res) => {
-  res.send('Lista de produtos');
-});
+router.get('/', produtosController.produtos);
+router.get('/camisetas', produtosController.camisetas);
 
-// Rota POST /produtos
-router.post('/', (req, res) => {
-  res.send('Produto cadastrado');
-});
-
-module.exports = router; // <- ESSENCIAL! Exportar o router corretamente
+module.exports = router;

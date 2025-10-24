@@ -1,11 +1,9 @@
 module.exports = {
-
-    lista: (req, res) => {
-        res.send('Lista de produtos (controller padronizado)');
+    produtos: (req, res) => {
+        res.sendFile('produtos.html', { root: './views' });
     },
 
-    cadastrar: (req, res) => {
-        res.send('Produto cadastrado (controller padronizado)');
+    camisetas: (req, res) => {
+        res.sendFile('camisetas.html', { root: './views' });
     }
-
 };

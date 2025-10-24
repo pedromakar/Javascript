@@ -1,11 +1,10 @@
 const express = require('express');
-const siteController = require('../controllers/siteController.js');
-const produtosController = require('../controllers/produtosController.js');
-
 const router = express.Router();
+const siteController = require('../controllers/siteController');
 
 router.get('/', siteController.index);
-router.get('/produtos', produtosController.lista);
-router.post('/camisetas', produtosController.cadastrar);
+router.get('/formulario', siteController.formulario);
+router.post('/saudacao', siteController.saudacao);
+router.get('/users', siteController.users);
 
 module.exports = router;

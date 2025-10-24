@@ -1,21 +1,31 @@
 const express = require('express');
 const path = require('path');
-const logger = require('morgan');
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const produtosRouter = require('./routes/produtos'); // Adicionando sua nova rota
-
 const app = express();
+const port = 3000;
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// Middleware para arquivos estáticos
+app.use(express.static('public'));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/produtos', produtosRouter); // Aqui também
-const clientesRouter = require('./routes/clientes');
-app.use('/clientes', clientesRouter);
+// Middleware para ler dados de formulários
+app.use(express.urlencoded({ extended: true }));
 
-module.exports = app;
+// Rotas
+const indexRoutes = require('./routes/index');
+app.use('/', indexRoutes);
+
+//Users Route
+const usersRoutes = require('./routes/users');
+app.use('/users', usersRoutes);
+
+// Produtos Route
+const produtosRoutes = require('./routes/produtos');
+app.use('/produtos', produtosRoutes);
+
+//Clientes Route
+const clientesRoutes = require('./routes/clientes');
+app.use('/clientes', clientesRoutes);
+
+// Servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
